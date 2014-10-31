@@ -12,15 +12,27 @@
   <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
 </head>
 <body>
-	<% if current_user %>
-      Welcome <%= current_user.email %>
-      <%= button_to "Logout", sessions_path, method: :delete %>
-   <!-- buttons always do POST, Links always do Get by default  -->
-    <% else %>
-      <%= button_to "Login", new_sessions_path, method: :get if !@is_login %>
-      <%= button_to "Sign Up", new_user_path, method: :get if !@is_login %>
+  <nav class="navbar navbar-default" role="navigation">
+  <div class="container-fluid">
 
-  <% end %>
+    <div class="navbar-header navbar-brand" >
+      <%= link_to image_tag("rainbow50px.jpg"), users_path, method: :get %> 
+    </div>
+
+    <p class="navbar-text navbar-right">
+      <% if current_user %>
+        Welcome <%= current_user.email %>
+        <%= link_to "Logout", sessions_path, method: :delete, :class => "btn btn-primary btn-xs"  %>
+        <!-- buttons always do POST, Links always do Get by default  -->
+      <% else %>
+        <%= link_to "Login", new_sessions_path, method: :get, :class => "btn btn-primary btn-xs"  if !@is_login %>
+        <%= link_to "Sign Up", new_user_path, method: :get, :class => "btn btn-primary btn-xs"  if !@is_login %>
+      <% end %>
+    </p>
+  </div>
+</nav>
+
+        
 
 
 
@@ -28,3 +40,4 @@
 
 </body>
 </html>
+
