@@ -1,8 +1,24 @@
 Rails.application.routes.draw do
 
-
-  resources :users
   resource :sessions, only: [:create, :new, :destroy]
+  
+  # resources :users
+  # users
+  get 'users/' => 'users#index'
+
+  get 'users/new' => 'users#new', as: :new_user
+
+  get 'users/:id' => 'users#show', as: :user
+
+  post 'users/' => 'users#create'
+
+  get 'users/:id/edit' => 'users#edit', as: :edit_user
+
+  patch 'users/:id' => 'users#update'
+
+  delete 'users/:id' => 'users#destroy', as: :delete_user
+  # end of users
+
 
   # games
   get 'games/' => 'games#index'
@@ -11,13 +27,13 @@ Rails.application.routes.draw do
 
   get 'games/:id' => 'games#show', as: :game
 
-  get 'games/' => 'games#create'
+  post 'games/' => 'games#create'
 
   get 'games/id:/edit' => 'games#edit', as: :edit_game
 
-  get 'games/:id' => 'games#update'
+  patch 'games/:id' => 'games#update'
 
-  get 'games/:id' => 'games#destroy'
+  delete 'games/:id' => 'games#destroy'
   # end of games routes
 
   # platforms
@@ -27,13 +43,13 @@ Rails.application.routes.draw do
 
   get 'platforms/:id' => 'platforms#show', as: :platform
 
-  get 'platforms/' => 'platforms#create'
+  post 'platforms/' => 'platforms#create'
 
   get 'platforms/id:/edit' => 'platforms#edit', as: :edit_platform
 
-  get 'platforms/:id' => 'platforms#update'
+  patch 'platforms/:id' => 'platforms#update'
 
-  get 'platforms/:id' => 'platforms#destroy'
+  delete 'platforms/:id' => 'platforms#destroy'
   # end of platforms routes
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -1,5 +1,13 @@
 class UsersController < ApplicationController
 
+	# before_action is a rails tool to run
+	# before_action :force_login
+
+	# this means if -- before the :index is ran make sure to force_admin
+	# before_action :force_admin, only: [index:] 
+
+
+
 	def index
 		@users = User.all
 	end
@@ -10,6 +18,7 @@ class UsersController < ApplicationController
 
 	def new
 		@user = User.new
+		@is_signup = true
 	end
 
 	def create
@@ -35,11 +44,44 @@ class UsersController < ApplicationController
         end
     end
 
+    # def destroy
+    # 	@user = User.find(params[:id])
+    #     @user.destroy
+    #     redirect_to users_path
+    # end
+
+# admin destroy tool
     def destroy
-    	@user = User.find(params[:id])
-        @user.destroy
-        redirect_to users_path
-    	
+    	u = User.where(id:params[:id]).first
+    	if u === current_user
+    		reset_session
+    	end
+    	u.destroy
+    	redirect_to users_path
     end
+
+# to make sure the user is logged in 
+    # def force_login
+    # 	if !current_user
+    # 		redirect_to new_sessions_path
+    # 	end
+    # end
+
+
+# to make sure the admin is logged in
+	# private
+	# 	def force_admin
+	# 		if !current_user || !current_user.is_admin
+	# 			redirect_to users_path
+	# 		end
+	# 	end
+	# end
+
+
+
+
+
+
+
 
 end

@@ -7,4 +7,5 @@ class User
   field :email, type: String
   field :password_digest, type: String
   field :zipcode, type: Integer
+  field :is_admin, type: Mongoid::Boolean
 end

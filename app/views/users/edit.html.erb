@@ -1,9 +1,10 @@
-<h1> Edit this User </h1>
+<h1> Edit User Profile </h1>
 
   <%= form_for @user do |f| %>
     First Name: <%= f.text_field :first %>
     Last Name: <%= f.text_field :last %>
     Email: <%= f.text_field :email %>
+    Zipcode: <%= f.text_field :zipcode %>
     Password: <%= f.password_field :password %>
     Repeat Password: <%= f.password_field :password_confirmation %>
 
@@ -11,5 +12,5 @@
     
   <% end %>
 
-  <%= link_to "Users list", users_path %> <br>
-  <%= link_to "New user", new_user_path %> <br>
+  <%= link_to "Back", users_path %> <br>
+  
