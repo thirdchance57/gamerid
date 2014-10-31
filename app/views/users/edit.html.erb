@@ -1,14 +1,14 @@
 <h1> Edit User Profile </h1>
 
   <%= form_for @user do |f| %>
-    First Name: <%= f.text_field :first %>
-    Last Name: <%= f.text_field :last %>
+    First Name: <%= f.text_field :first_name %>
+    Last Name: <%= f.text_field :last_name %>
     Email: <%= f.text_field :email %>
     Zipcode: <%= f.text_field :zipcode %>
-    Password: <%= f.password_field :password %>
-    Repeat Password: <%= f.password_field :password_confirmation %>
+    
 
-    <%= f.submit "Edit User" %>
+    <%= f.submit "Edit User" %> <br />
+    <%= link_to "Delete", delete_user_path(@user), :method => :delete %>
     
   <% end %>
 

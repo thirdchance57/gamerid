@@ -1,9 +1,10 @@
 <h1> Sign Up Page </h1>
 
   <%= form_for @user do |f| %>
-    First Name: <%= f.text_field :first, placeholder: "First Name"%>
-    Last Name: <%= f.text_field :last, placeholder: "Last Name"%>
+    First Name: <%= f.text_field :first_name, placeholder: "First Name"%>
+    Last Name: <%= f.text_field :last_name, placeholder: "Last Name"%>
     Email: <%= f.text_field :email, placeholder: "email"%>
+    Zipcode: <%= f.text_field :zipcode, placeholder: "zipcode"%>
     Password: <%= f.password_field :password, placeholder: "password"%>
     Repeat Password: <%= f.password_field :password_confirmation, placeholder: "password"%>
 

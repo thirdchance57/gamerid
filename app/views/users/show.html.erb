@@ -2,7 +2,9 @@
 
   <p> <br> 
     email address: <%= @user.email %> <br>
+    Name: <%= @user.first_name %> <%= @user.last_name %> <br>
+    Zipcode: <%= @user.zipcode %> <br>
     </p>
-
-  <%= link_to "Back", users_path %>
+  <%= link_to "Edit User", edit_user_path %> <br>
+  <%= link_to "Back", users_path %> <br>
   <%= link_to "Delete", delete_user_path(@user), :method => :delete %>

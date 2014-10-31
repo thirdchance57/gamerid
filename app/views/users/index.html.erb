@@ -1,13 +1,38 @@
 <h1>User List</h1>
-	<ul>
+<!-- 	<table class="table">
     <% @users.each do |b| %>
 	    <li>
-        <strong> <%= b.first %> </strong> -- <%= b.email %> <%= link_to "More details!", user_path(b) %>
+        <strong> <%= b.first_name %> <%= b.last_name %></strong> -- <%= b.email %>, <%= b.zipcode %> <%= link_to "More details!", user_path(b) %>
         <%= link_to "Edit this user", edit_user_path(b) %>
 	    </li>
     <% end %>
+    </table>
 
     <%= link_to "Sign Up", new_user_path %> <br> 
 
 	</ul>
-
+ -->
+<table class="table">
+      <caption>Optional table caption.</caption>
+      <thead>
+        <tr>
+          
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Email</th>
+          <th>Zipcode</th>
+        </tr>
+      </thead>
+      <tbody>
+      	<% @users.each do |b| %>
+        <tr>
+          
+          <td><%= b.first_name %></td>
+          <td><%= b.last_name %></td>
+          <td><%= b.email %></td>
+          <td><%= b.zipcode %></td>
+        </tr>
+        <% end %>
+        
+      </tbody>
+    </table>
