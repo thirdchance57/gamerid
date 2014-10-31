@@ -6,6 +6,9 @@ gem 'mongoid', github: 'mongoid/mongoid'
 # bower-angular gem
 gem 'bower-rails'
 
+# this helps bring/upgrade rails app to heroku standards
+gem 'rails_12factor'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.0'
 # Use SCSS for stylesheets
