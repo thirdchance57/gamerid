@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  madden: MyString
+  cod: MyString
+  battlefield4: MyString
+
+two:
+  madden: MyString
+  cod: MyString
+  battlefield4: MyString

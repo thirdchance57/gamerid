@@ -1,0 +1,13 @@
+<h1>User List</h1>
+	<ul>
+    <% @users.each do |b| %>
+	    <li>
+        <strong> <%= b.first %> </strong> -- <%= b.email %> <%= link_to "More details!", user_path(b) %>
+        <%= link_to "Edit this user", edit_user_path(b) %>
+	    </li>
+    <% end %>
+
+    <%= link_to "New user", new_user_path %> <br> 
+
+	</ul>
+

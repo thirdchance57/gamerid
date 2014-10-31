@@ -1,0 +1,15 @@
+<h1> Edit this User </h1>
+
+  <%= form_for @user do |f| %>
+    First Name: <%= f.text_field :first %>
+    Last Name: <%= f.text_field :last %>
+    Email: <%= f.text_field :email %>
+    Password: <%= f.password_field :password %>
+    Repeat Password: <%= f.password_field :password_confirmation %>
+
+    <%= f.submit "Edit User" %>
+    
+  <% end %>
+
+  <%= link_to "Users list", users_path %> <br>
+  <%= link_to "New user", new_user_path %> <br>
