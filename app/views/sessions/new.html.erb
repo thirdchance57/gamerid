@@ -1,11 +1,40 @@
-<h1> Login Page </h1>
-						
-  <%= form_for(@user, {url:sessions_path}) do |f| %>
-    Email: <%= f.text_field :email, placeholder: "email"%>
-    Password: <%= f.password_field :password, placeholder: "password"%>
-
-    <%= f.submit "LOGIN" %>
 
 
+<div class="container">
+	<div class="row">
+		<div class="col-md-4"></div>
+		<div class="col-md-4">
+			<h2 class="form-signin-heading">GamerBook Login</h2>
+		  	<%= form_for(@user, {url:sessions_path}) do |f| %>
+		    <%= f.text_field :email, placeholder: "email", :class => "form-control"%>
+			<%= f.password_field :password, placeholder: "password", :class => "form-control" %>
+			
+			<div class="checkbox">
+		      	<label>
+		        	<input type="checkbox" value="remember-me"> Remember me
+		      	</label>
+		    </div>
+		    
+		    <%= f.submit "LOGIN", :class => "btn btn-lg btn-primary btn-block" %>
+		    <% end %>
+	    </div>
+	    <div class="col-md-4"></div>
+   	</div>
+</div>
+  
 
-  <% end %>
+<!--   	<div class="container">
+
+      <form class="form-signin " role="form">
+        <input type="email" class="form-control" placeholder="Email address" required="" autofocus="">
+        <input type="password" class="form-control" placeholder="Password" required="">
+        
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="remember-me"> Remember me
+          </label>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+      </form>
+
+    </div> -->
