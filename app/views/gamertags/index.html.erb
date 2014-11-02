@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="col-md-1"></div>
+  <div class="col-md-10">
+    <h1>Gamer Tags List</h1>
+    <%= link_to "Add Gamer Tag", gamertags_new_path %>
+
+    <table class="table table-striped">
+      <caption>Gamer Tag Database</caption>
+      <thead>
+        <tr>
+          
+          <th>Gamer Tag</th>
+          <th>Platform</th>
+          <th>Server</th>
+          <th>Game</th>
+          <th>Username</th>
+
+        </tr>
+      </thead>
+      <tbody>
+      	<% @gamertags.each do |b| %>
+        <tr>
+          
+          <td><%= b.name %></td>
+          <td><%= b.platform %></td>
+          <td><%= b.server %></td>
+          <td><%= b.game %></td>
+          <td><%= b.username %></td>
+          <td><%= link_to "Edit", edit_gamertag_path(b) %></td>
+        </tr>
+        <% end %>
+        
+      </tbody>
+    </table>
+  </div>
+  <div class="col-md-1"></div>
+</div>

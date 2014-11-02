@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   resource :sessions, only: [:create, :new, :destroy]
-  
+
   # resources :users
   # users
   get 'users/' => 'users#index'
@@ -18,6 +18,22 @@ Rails.application.routes.draw do
 
   delete 'users/:id' => 'users#destroy', as: :delete_user
   # end of users
+
+  # gamertags
+  get 'gamertags/' => 'gamertags#index'
+
+  get 'gamertags/new' => 'gamertags#new'
+
+  get 'gamertags/:id' => 'gamertags#show', as: :gamertag
+
+  post 'gamertags/' => 'gamertags#create'
+
+  get 'gamertags/:id/edit' => 'gamertags#edit', as: :edit_gamertag
+
+  patch 'gamertags/:id' => 'gamertags#update'
+
+  delete 'gamertags/:id' => 'gamertags#destroy'
+  # end of gamer_tags routes
 
 
   # games

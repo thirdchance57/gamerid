@@ -1,0 +1,18 @@
+<h1> Edit Gamertag Profile </h1>
+
+  <%= form_for @gamertags do |f| %>
+    Gamer Tag: <%= f.text_field :name %>
+    Platform: <%= f.text_field :platform %>
+    Server: <%= f.text_field :server %>
+    Username: <%= f.text_field :username %>
+    Games n Details: <%= f.text_area :game %>
+
+    
+
+    <%= f.submit "Edit Gamertag" %> <br />
+    <%= link_to "Delete", @gamertag, :method => :delete %>
+    
+  <% end %>
+
+  <%= link_to "Back", gamertags_path %> <br>
+  

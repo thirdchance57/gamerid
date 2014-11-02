@@ -1,0 +1,2 @@
+module GamertagsHelper
+end

@@ -1,0 +1,11 @@
+<h1> Details </h1>
+
+  <p> <br> 
+    Gamer Tag: <%= @gamertag.name %> <br>
+    Platform: <%= @gamertag.platform %> <br>
+    Server: <%= @gamertag.server %> <br>
+    Games n Details: <%= @gamertag.game %> <br>
+    </p>
+  <%= link_to "Edit gamertag", edit_gamertag_path %> <br>
+  <%= link_to "Back", gamertags_path %> <br>
+  <%= link_to "Delete", delete_gamertag_path(@gamertag), :method => :delete %>

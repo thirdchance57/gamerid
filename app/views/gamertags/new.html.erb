@@ -1,0 +1,14 @@
+<h1> Add Gamer Tag </h1>
+
+  <%= form_for @gamertag do |f| %>
+    Gamer Tag: <%= f.text_field :name, placeholder: "Gamer Tag"%>
+    Platform: <%= f.text_field :platform, placeholder: "Platform"%>
+    Server: <%= f.text_field :server, placeholder: "Server"%>
+    Username: <%= f.text_field :username, placeholder: "username"%>
+    Games n Details: <%= f.text_field :game, placeholder: "Games, details, clan names, groups, info"%>
+
+    <%= f.submit "Add" %>
+
+  <% end %>
+
+  <%= link_to "Gamer Tags", gamertags_path %>

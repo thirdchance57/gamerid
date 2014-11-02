@@ -1,16 +1,28 @@
-<h1> Edit User Profile </h1>
+<div class="container">
+	<div class="row">
+		<div class="form-group col-md-4"></div>
 
-  <%= form_for @user do |f| %>
-    First Name: <%= f.text_field :first_name %>
-    Last Name: <%= f.text_field :last_name %>
-    Email: <%= f.text_field :email %>
-    Zipcode: <%= f.text_field :zipcode %>
+		<div class="form-group col-md-4">
+			<form role="form">
+		    	<h1> Edit Profile </h1>
+			  	<%= form_for @user do |f| %>
+			    	<h5>First Name:</h5> <%= f.text_field :first_name, :class => "form-control" %><br>
+			    	<h5>Last Name:</h5> <%= f.text_field :last_name, :class => "form-control" %><br>
+			    	<h5>Email:</h5> <%= f.text_field :email, :class => "form-control" %><br>
+			    	<h5>Zipcode:</h5> <%= f.text_field :zipcode, :class => "form-control" %><br>
+			    
+			    	<%= f.submit "Edit User", :class => "btn btn-primary" %> <br />
+			    <% end %>
+			    <%= link_to "Delete", delete_user_path(@user), :method => :delete %>
+			    <%= link_to "Back", users_path %> <br>
+			</form>
+		</div>
+
+		<div class="form-group col-md-4"></div>
+	</div>
+</div>
+
     
 
-    <%= f.submit "Edit User" %> <br />
-    <%= link_to "Delete", delete_user_path(@user), :method => :delete %>
-    
-  <% end %>
 
-  <%= link_to "Back", users_path %> <br>
-  
+
