@@ -1,15 +1,27 @@
-<h1> Sign Up Page </h1>
+<div class="container">
+  <div class="row">
+    <div class="form-group col-md-4"></div>
 
-  <%= form_for @user do |f| %>
-    First Name: <%= f.text_field :first_name, placeholder: "First Name"%>
-    Last Name: <%= f.text_field :last_name, placeholder: "Last Name"%>
-    Email: <%= f.text_field :email, placeholder: "email"%>
-    Zipcode: <%= f.text_field :zipcode, placeholder: "zipcode"%>
-    Password: <%= f.password_field :password, placeholder: "password"%>
-    Repeat Password: <%= f.password_field :password_confirmation, placeholder: "password"%>
+    <div class="form-group col-md-4">
+    <h1> Sign Up Page </h1>
 
-    <%= f.submit "SIGN UP" %>
+      <%= form_for @user do |f| %>
+        First Name: <%= f.text_field :first_name, placeholder: "First Name", :class => "form-control" %>
+        Last Name: <%= f.text_field :last_name, placeholder: "Last Name", :class => "form-control" %>
+        Email: <%= f.text_field :email, placeholder: "email", :class => "form-control" %>
+        Zipcode: <%= f.text_field :zipcode, placeholder: "zipcode", :class => "form-control" %>
+        Password: <%= f.password_field :password, placeholder: "password", :class => "form-control" %>
+        Repeat Password: <%= f.password_field :password_confirmation, placeholder: "password", :class => "form-control" %>
 
-  <% end %>
+        <%= link_to "Cancel", gamertags_path, :class => "btn btn-primary" %>
+        <%= f.submit "Sign Up", :class => "btn btn-primary"  %>
 
-  <%= link_to "User List", users_path %>
+      <% end %>
+
+      <%= link_to "User List", users_path %>
+    </div>
+
+    <div class="form-group col-md-4"></div>
+  </div>
+</div>
+

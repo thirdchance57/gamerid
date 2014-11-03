@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  root 'gamertags#index'
+
   resource :sessions, only: [:create, :new, :destroy]
 
   # resources :users

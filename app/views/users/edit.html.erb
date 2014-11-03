@@ -11,6 +11,7 @@
 	    	<h5>Email:</h5> <%= f.text_field :email, :class => "form-control" %><br>
 	    	<h5>Zipcode:</h5> <%= f.text_field :zipcode, :class => "form-control" %><br>
 	    
+	    <%= link_to "Cancel", gamertags_path,  :class => "btn btn-primary" %>
 	    <%= f.submit "Edit User", :class => "btn btn-primary" %> <br>
 	    <% end %>
 	    <%= link_to "Delete", delete_user_path(@user), :method => :delete %>

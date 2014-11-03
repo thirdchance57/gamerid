@@ -12,6 +12,7 @@
         <h5>Username:</h5> <%= f.text_field :username, :class => "form-control" %>
         <h5>Games n Details:</h5> <%= f.text_area :game, :class => "form-control" %><br>
 
+        <%= link_to "Cancel", gamertags_path,  :class => "btn btn-primary" %>
         <%= f.submit "Edit", :class => "btn btn-primary" %> <br>
       <% end %>
       <%= link_to "Delete", @gamertag, :method => :delete %>

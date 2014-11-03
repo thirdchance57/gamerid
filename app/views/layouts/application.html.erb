@@ -13,23 +13,41 @@
 </head>
 <body>
   <nav class="navbar navbar-default" role="navigation">
-  <div class="container-fluid">
+    <div class="container-fluid">
+      <div class="navbar-header navbar-brand" >
+        <%= link_to image_tag("rainbow50px.jpg"), gamertags_path, method: :get %>
+      </div>
+      <div class="navbar-header">
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li><%= link_to "Gamer Tags", gamertags_path %></li>
+            <li><%= link_to "Users", users_path %></li>
+            <!-- <li><%= link_to "Link", gamertags_path %></li> -->
+          </ul>
 
-    <div class="navbar-header navbar-brand" >
-      <%= link_to image_tag("rainbow50px.jpg"), gamertags_path, method: :get %> 
+          <!-- <form class="navbar-form navbar-left" role="search">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Search">
+            </div>
+            <button type="submit" class="btn btn-primary btn-xs">Submit</button>
+          </form> -->
+
+        </div>
+      </div>
+      
+
+
+      <div class="navbar-text navbar-right">
+        <% if current_user %>
+          Welcome <%= current_user.email %>
+          <%= link_to "Logout", sessions_path, method: :delete, :class => "btn btn-primary btn-xs"  %>
+          <!-- buttons always do POST, Links always do Get by default  -->
+        <% else %>
+          <%= link_to "Login", new_sessions_path, method: :get, :class => "btn btn-primary btn-xs"  if !@is_login %>
+          <%= link_to "Sign Up", new_user_path, method: :get, :class => "btn btn-primary btn-xs"  if !@is_login %>
+        <% end %>
+      </div>
     </div>
-
-    <p class="navbar-text navbar-right">
-      <% if current_user %>
-        Welcome <%= current_user.email %>
-        <%= link_to "Logout", sessions_path, method: :delete, :class => "btn btn-primary btn-xs"  %>
-        <!-- buttons always do POST, Links always do Get by default  -->
-      <% else %>
-        <%= link_to "Login", new_sessions_path, method: :get, :class => "btn btn-primary btn-xs"  if !@is_login %>
-        <%= link_to "Sign Up", new_user_path, method: :get, :class => "btn btn-primary btn-xs"  if !@is_login %>
-      <% end %>
-    </p>
-  </div>
   </nav>
 
 
