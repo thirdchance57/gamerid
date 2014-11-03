@@ -1,18 +1,26 @@
-<h1> Edit Gamertag Profile </h1>
+<div class="container">
+  <div class="row">
+    <div class="form-group col-md-4"></div>
 
-  <%= form_for @gamertags do |f| %>
-    Gamer Tag: <%= f.text_field :name %>
-    Platform: <%= f.text_field :platform %>
-    Server: <%= f.text_field :server %>
-    Username: <%= f.text_field :username %>
-    Games n Details: <%= f.text_area :game %>
+    <div class="form-group col-md-4">
+      <h1> Gamertag Profile Edit </h1>
 
-    
+      <%= form_for @gamertags do |f| %>
+        <h5>Gamer Tag:</h5> <%= f.text_field :name, :class => "form-control" %>
+        <h5>Platform:</h5> <%= f.text_field :platform, :class => "form-control" %>
+        <h5>Server:</h5> <%= f.text_field :server, :class => "form-control" %>
+        <h5>Username:</h5> <%= f.text_field :username, :class => "form-control" %>
+        <h5>Games n Details:</h5> <%= f.text_area :game, :class => "form-control" %><br>
 
-    <%= f.submit "Edit Gamertag" %> <br />
-    <%= link_to "Delete", @gamertag, :method => :delete %>
-    
-  <% end %>
+        <%= f.submit "Edit", :class => "btn btn-primary" %> <br>
+      <% end %>
+      <%= link_to "Delete", @gamertag, :method => :delete %>
+        
+      
 
-  <%= link_to "Back", gamertags_path %> <br>
-  
+      <%= link_to "Back", gamertags_path %> <br>
+    </div>
+
+    <div class="form-group col-md-4"></div>
+  </div>
+</div>        

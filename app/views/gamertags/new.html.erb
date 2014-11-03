@@ -1,14 +1,22 @@
-<h1> Add Gamer Tag </h1>
+<div class="container">
+  <div class="row">
+    <div class="form-group col-md-3"></div>
 
-  <%= form_for @gamertag do |f| %>
-    Gamer Tag: <%= f.text_field :name, placeholder: "Gamer Tag"%>
-    Platform: <%= f.text_field :platform, placeholder: "Platform"%>
-    Server: <%= f.text_field :server, placeholder: "Server"%>
-    Username: <%= f.text_field :username, placeholder: "username"%>
-    Games n Details: <%= f.text_field :game, placeholder: "Games, details, clan names, groups, info"%>
+    <div class="form-group col-md-5">
+      <h1> Add Gamer Tag  </h1>
+        <%= form_for @gamertag do |f| %>
+        <h5>Gamer Tag:</h5> <%= f.text_field :name, placeholder: "Gamer Tag", :class => "form-control" %>
+        <h5>Platform:</h5> <%= f.text_field :platform, placeholder: "Platform", :class => "form-control" %>
+        <h5>Server:</h5> <%= f.text_field :server, placeholder: "Server", :class => "form-control" %>
+        <h5>Username:</h5> <%= f.text_field :username, placeholder: "username", :class => "form-control" %>
+        <h5>Games n Details:</h5> <%= f.text_field :game, placeholder: "Games, details, clan names, groups, info", :class => "form-control" %> <br>
 
-    <%= f.submit "Add" %>
+        <%= f.submit "Cancel", :class => "btn btn-primary" %>
+        <%= f.submit "Add", :class => "btn btn-primary" %>
+      <% end %>
+      <%= link_to "Gamer Tags", gamertags_path %>
 
-  <% end %>
-
-  <%= link_to "Gamer Tags", gamertags_path %>
+    </div>
+    <div class="form-group col-md-4"></div>
+  </div>
+</div>

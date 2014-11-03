@@ -21,7 +21,7 @@
       	<% @gamertags.each do |b| %>
         <tr>
           
-          <td><%= b.name %></td>
+          <td><%= link_to b.name, gamertag_path(b) %></td>
           <td><%= b.platform %></td>
           <td><%= b.server %></td>
           <td><%= b.game %></td>
