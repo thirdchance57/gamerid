@@ -34,7 +34,7 @@ class GamertagsController < ApplicationController
 	end
 
 	def edit
-		@gamertags = Gamertag.find(params[:id])
+		@gamertag = Gamertag.find(params[:id])
 	end
 
 	def update
@@ -47,8 +47,8 @@ class GamertagsController < ApplicationController
   end
 
   def destroy
-  	@gamertags = Gamertag.find(params[:id])
-    @gamertags.destroy
+  	@gamertag = Gamertag.find(params[:id])
+    @gamertag.destroy
     redirect_to gamertags_path
   end
 

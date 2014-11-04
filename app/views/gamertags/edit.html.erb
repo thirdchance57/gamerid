@@ -5,7 +5,7 @@
     <div class="form-group col-md-4">
       <h1> Gamertag Profile Edit </h1>
 
-      <%= form_for @gamertags do |f| %>
+      <%= form_for @gamertag do |f| %>
         <h5>Gamer Tag:</h5> <%= f.text_field :name, :class => "form-control" %>
         <h5>Platform:</h5> <%= f.text_field :platform, :class => "form-control" %>
         <h5>Server:</h5> <%= f.text_field :server, :class => "form-control" %>
@@ -15,7 +15,8 @@
         <%= link_to "Cancel", gamertags_path,  :class => "btn btn-primary" %>
         <%= f.submit "Edit", :class => "btn btn-primary" %> <br>
       <% end %>
-      <%= link_to "Delete", @gamertag, :method => :delete %>
+      <%= link_to "Delete", (@gamertag), :method => :delete %>
+
         
       
 
