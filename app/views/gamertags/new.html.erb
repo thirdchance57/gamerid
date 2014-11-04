@@ -10,9 +10,14 @@
         <h5>Server:</h5> <%= f.text_field :server, placeholder: "Server", :class => "form-control" %>
         <h5>Username:</h5> <%= f.text_field :username, placeholder: "username", :class => "form-control" %>
         <h5>Games n Details:</h5> <%= f.text_field :game, placeholder: "Games, details, clan names, groups, info", :class => "form-control" %> <br>
+        
+        <%= f.hidden_field :user_id, :value => params[:id]  %>
+        <%= f.submit "Add", :class => "btn btn-primary" %>
 
         <%= link_to "Cancel", gamertags_path,  :class => "btn btn-primary" %>
-        <%= f.submit "Add", :class => "btn btn-primary" %>
+
+
+
       <% end %>
       <%= link_to "Gamer Tags", gamertags_path %>
 

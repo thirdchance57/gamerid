@@ -5,4 +5,7 @@ class Gamertag
   field :server, type: String
   field :name, type: String
   field :username, type: String
+
+
+  belongs_to :user
 end

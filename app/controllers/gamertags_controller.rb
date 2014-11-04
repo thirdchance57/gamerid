@@ -21,12 +21,16 @@ class GamertagsController < ApplicationController
 	end
 
 	def create
-	    @gamertags = Gamertag.new(params.require(:gamertag).permit(:platform, :server, :game, :name, :username))
-	    if @gamertags.save
-	        redirect_to gamertags_path
-	    else
-	        render 'new'
-	    end
+
+    @current_user  = current_user#User.where(:'username' => :username);
+
+    @current_user.gamertags << Gamertag.new(params.require(:gamertag).permit(:platform, :server, :game, :name, :username))
+#gamertags = Gamertag.new(params.require(:gamertag).permit(:platform, :server, :game, :name, :username, :user_id))
+    if current_user.save
+        redirect_to gamertags_path
+    else
+       render 'new'
+    end
 	end
 
 	def edit
@@ -34,19 +38,19 @@ class GamertagsController < ApplicationController
 	end
 
 	def update
-        @gamertags = Gamertag.find(params[:id])
-        if @gamertags.update_attributes(params.require(:gamertag).permit(:platform, :server, :game, :name, :username))
-            redirect_to gamertags_path
-        else
-            render 'edit'
-        end
-    end
-
-    def destroy
-    	@gamertags = Gamertag.find(params[:id])
-        @gamertags.destroy
+    @gamertags = Gamertag.find(params[:id])
+    if @gamertags.update_attributes(params.require(:gamertag).permit(:platform, :server, :game, :name, :username))
         redirect_to gamertags_path
+    else
+        render 'edit'
     end
+  end
+
+  def destroy
+  	@gamertags = Gamertag.find(params[:id])
+    @gamertags.destroy
+    redirect_to gamertags_path
+  end
 
 # admin destroy tool
     # def destroy

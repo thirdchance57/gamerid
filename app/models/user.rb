@@ -8,4 +8,6 @@ class User
   field :password_digest, type: String
   field :zipcode, type: Integer
   field :is_admin, type: Mongoid::Boolean
+
+  has_many :gamertags
 end
