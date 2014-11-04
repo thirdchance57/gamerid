@@ -7,7 +7,7 @@
 
       <%= form_for @gamertag do |f| %>
         <h5>Gamer Tag:</h5> <%= f.text_field :name, :class => "form-control" %>
-        <h5>Platform:</h5> <%= f.text_field :platform, :class => "form-control" %>
+        <h5>Platform:</h5> <%= f.select(:platform, ['Xbox', 'Playstaion', 'Steam / PC', 'IOS Game Center', 'Android Play Games',  ], {}, { :class => 'form-control' }) %>        
         <h5>Server:</h5> <%= f.text_field :server, :class => "form-control" %>
         <h5>Username:</h5> <%= f.text_field :username, :class => "form-control" %>
         <h5>Games n Details:</h5> <%= f.text_area :game, :class => "form-control" %><br>

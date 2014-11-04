@@ -27,6 +27,7 @@
           <td><%= b.email %></td>
           <td><%= b.zipcode %></td>
           <td><%= link_to "Edit", edit_user_path(b) %></td>
+          <td><%= link_to "Details", user_path(b) %></td>
           <td><%= link_to "Delete", delete_user_path(b), :method => :delete %></td>
 
         </tr>

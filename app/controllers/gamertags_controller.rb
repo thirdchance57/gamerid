@@ -10,6 +10,7 @@ class GamertagsController < ApplicationController
 
 	def index
 		@gamertags = Gamertag.all
+        @user = User.where(:id => :user_id)
 	end
 
 	def show
@@ -22,7 +23,7 @@ class GamertagsController < ApplicationController
 
 	def create
 
-    @current_user  = current_user#User.where(:'username' => :username);
+    @current_user = current_user 
 
     @current_user.gamertags << Gamertag.new(params.require(:gamertag).permit(:platform, :server, :game, :name, :username))
 #gamertags = Gamertag.new(params.require(:gamertag).permit(:platform, :server, :game, :name, :username, :user_id))
@@ -38,8 +39,8 @@ class GamertagsController < ApplicationController
 	end
 
 	def update
-    @gamertags = Gamertag.find(params[:id])
-    if @gamertags.update_attributes(params.require(:gamertag).permit(:platform, :server, :game, :name, :username))
+    @gamertag = Gamertag.find(params[:id])
+    if @gamertag.update_attributes(params.require(:gamertag).permit(:platform, :server, :game, :name, :username))
         redirect_to gamertags_path
     else
         render 'edit'

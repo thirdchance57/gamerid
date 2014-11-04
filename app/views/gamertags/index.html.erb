@@ -13,21 +13,22 @@
           <th>Platform</th>
           <th>Server</th>
           <th>Game</th>
-          <th>Username</th>
+          <th>User Profile</th>
 
         </tr>
       </thead>
       <tbody>
       	<% @gamertags.each do |b| %>
-        <tr>
-          
-          <td><%= link_to b.name, gamertag_path(b) %></td>
-          <td><%= b.platform %></td>
-          <td><%= b.server %></td>
-          <td><%= b.game %></td>
-          <td><%= b.username %></td>
-          <td><%= link_to "Edit", edit_gamertag_path(b) %></td>
-        </tr>
+
+          <tr>
+            
+            <td><%= link_to b.name, gamertag_path(b) %></td>
+            <td><%= b.platform %></td>
+            <td><%= b.server %></td>
+            <td><%= b.game %></td>
+            <td><%= b.user_id %></td>
+            <td><%= link_to "Edit", edit_gamertag_path(b) %></td>
+          </tr>
         <% end %>
         
       </tbody>

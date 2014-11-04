@@ -6,8 +6,6 @@ class UsersController < ApplicationController
 	# this means if -- before the :index is ran make sure to force_admin
 	# before_action :force_admin, only: [index:] 
 
-
-
 	def index
 		@users = User.all
 	end
@@ -36,29 +34,29 @@ class UsersController < ApplicationController
 	end
 
 	def update
-        @user = User.find(params[:id])
-        if @user.update_attributes(params.require(:user).permit(:first_name, :last_name, :email, :zipcode, :password, :password_confirmation))
-            redirect_to gamertags_path
-        else
-            render 'edit'
-        end
-    end
+      @user = User.find(params[:id])
+      if @user.update_attributes(params.require(:user).permit(:first_name, :last_name, :email, :zipcode, :password, :password_confirmation))
+          redirect_to gamertags_path
+      else
+          render 'edit'
+      end
+  end
 
-    # def destroy
-    # 	@user = User.find(params[:id])
-    #     @user.destroy
-    #     redirect_to users_path
-    # end
+# def destroy
+# 	@user = User.find(params[:id])
+#     @user.destroy
+#     redirect_to users_path
+# end
 
 # admin destroy tool
-    def destroy
-    	u = User.where(id:params[:id]).first
-    	if u === current_user
-    		reset_session
-    	end
-    	u.destroy
-    	redirect_to users_path
-    end
+  def destroy
+  	u = User.where(id:params[:id]).first
+  	if u === current_user
+  		reset_session
+  	end
+  	u.destroy
+  	redirect_to users_path
+  end
 
 # to make sure the user is logged in 
     # def force_login
@@ -66,7 +64,6 @@ class UsersController < ApplicationController
     # 		redirect_to new_sessions_path
     # 	end
     # end
-
 
 # to make sure the admin is logged in
 	# private
@@ -76,12 +73,5 @@ class UsersController < ApplicationController
 	# 		end
 	# 	end
 	# end
-
-
-
-
-
-
-
 
 end
