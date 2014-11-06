@@ -6,7 +6,7 @@
       <h1> Add Gamer Tag  </h1>
         <%= form_for @gamertag do |f| %>
         <h5>Gamer Tag:</h5> <%= f.text_field :name, placeholder: "Gamer Tag", :class => "form-control" %>
-        <h5>Platform:</h5> <%= f.select(:platform, ['Xbox', 'Playstaion', 'Steam / PC', 'IOS Game Center', 'Android Play Games',  ], {}, { :class => 'form-control' }) %>
+        <h5>Platform:</h5> <%= f.select(:platform, ['Xbox', 'Playstation', 'Steam / PC', 'IOS Game Center', 'Android Play Games',  ], {}, { :class => 'form-control' }) %>
         <h5>Server:</h5> <%= f.text_field :server, placeholder: "Server", :class => "form-control" %>
         <h5>Username:</h5> <%= f.text_field :username, placeholder: "other usernames", :class => "form-control" %>
         <h5>Games n Details:</h5> <%= f.text_field :game, placeholder: "Games, details, clan names, groups, info", :class => "form-control" %> <br>

@@ -9,8 +9,24 @@ class GamertagsController < ApplicationController
 
 
 	def index
-		@gamertags = Gamertag.all
-        @user = User.where(:id => :user_id)
+    my_gamertag_filter = params[:gamertagfilter]
+    case my_gamertag_filter
+    when "showall"
+      @gamertags = Gamertag.all
+    when "Xbox"
+      @gamertags = Gamertag.where(:platform => "Xbox")
+    when "Playstation"
+      @gamertags = Gamertag.where(:platform => "Playstation")
+    when "Steam / PC"
+      @gamertags = Gamertag.where(:platform => "Steam / PC")
+    when "IOS Game Center"
+      @gamertags = Gamertag.where(:platform => "IOS Game Center")
+    when "Android Play Games"
+      @gamertags = Gamertag.where(:platform => "Android Play Games")
+    else
+		  @gamertags = Gamertag.all
+    end
+    @user = User.where(:id => :user_id)
 	end
 
 	def show

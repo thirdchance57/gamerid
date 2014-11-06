@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+# paperclip images for mongoid
+gem "mongoid-paperclip", "~> 0.0.8", :require => "mongoid_paperclip"
+
 # mongoid gem
 gem 'mongoid', github: 'mongoid/mongoid'
 

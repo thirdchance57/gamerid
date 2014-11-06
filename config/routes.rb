@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   root 'gamertags#index'
 
   resource :sessions, only: [:create, :new, :destroy]
-
+  resource :photos
+  
   # resources :users
   # users
   get 'users/' => 'users#index'

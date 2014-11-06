@@ -4,6 +4,15 @@
     <h1>Gamer Tags List</h1>
     <%= link_to "Add Gamer Tag", gamertags_new_path %>
 
+    <table class="table">
+      <th><%= link_to "Show All", gamertags_path(gamertagfilter:"showall") %></th>
+      <th><%= link_to "Xbox",  gamertags_path(gamertagfilter:"Xbox") %></th>
+      <th><%= link_to "Playstation", gamertags_path(gamertagfilter:"Playstation") %></th>
+      <th><%= link_to "Steam / PC",  gamertags_path(gamertagfilter:"Steam / PC") %></th>
+      <th><%= link_to "IOS Game Center", gamertags_path(gamertagfilter:"IOS Game Center") %></th>
+      <th><%= link_to "Android Play Games", gamertags_path(gamertagfilter:"Android Play Games") %></th>
+    </table>
+
     <table class="table table-striped">
       <caption>Gamer Tag Database</caption>
       <thead>
