@@ -14,7 +14,11 @@
 	    <%= link_to "Cancel", gamertags_path,  :class => "btn btn-primary" %>
 	    <%= f.submit "Edit User", :class => "btn btn-primary" %> <br>
 	    <% end %>
-	    <%= link_to "Delete", delete_user_path(@user), :method => :delete %>
+
+
+	    <br>
+    	<%= link_to "Upload Photo", new_photos_path%>	<br>
+	    <%= link_to "Delete", delete_user_path(@user), :method => :delete %> <br>
 	    <%= link_to "Back", users_path %> <br>
 	
 		</div>
