@@ -25,7 +25,7 @@ class UsersController < ApplicationController
 	    	session[:user_id] = @user.id.to_s
 	        redirect_to gamertags_path
 	    else
-	        render 'new'
+	        redirect_to new_user_path, notice: 'Invalid,  Check form and try again'
 	    end
 	end
 
@@ -38,7 +38,7 @@ class UsersController < ApplicationController
       if @user.update_attributes(params.require(:user).permit(:first_name, :last_name, :email, :zipcode, :password, :password_confirmation))
           redirect_to gamertags_path
       else
-          render 'edit'
+        redirect_to edit_user_path(@user), notice: 'Invalid,  Check form and try again'
       end
   end
 

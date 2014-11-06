@@ -3,6 +3,10 @@
 		<div class="col-md-4"></div>
 		<div class="col-md-4">
 			<h2 class="form-signin-heading">GamerBook Login</h2>
+			<% if flash[:notice] %>
+	      <div class="alert alert-danger"><%= flash[:notice] %></div>
+	    <% end %>
+
 		  	<%= form_for(@user, {url:sessions_path}) do |f| %>
 		    <%= f.text_field :email, placeholder: "email", :class => "form-control"%>
 			<%= f.password_field :password, placeholder: "password", :class => "form-control" %>

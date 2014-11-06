@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
       redirect_to gamertags_path
     else
       # Go back to the login page
-      redirect_to new_sessions_path
+      redirect_to new_sessions_path, notice: 'Invalid, Check form and try again'
     end
   end
 
