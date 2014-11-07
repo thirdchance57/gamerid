@@ -5,7 +5,7 @@
     <%= link_to "Gamer Tags", gamertags_path %>
 
     <table class="table table-striped">
-      <caption>Admin Edit Table</caption>
+      <caption></caption>
       <thead>
         <tr>
           
@@ -13,8 +13,7 @@
           <th>Last Name</th>
           <th>Email</th>
           <th>Zipcode</th>
-          <th>Edit</th>
-          <th>Delete</th>
+          <th>User Profile</th>
 
         </tr>
       </thead>
@@ -26,15 +25,20 @@
           <td><%= b.last_name %></td>
           <td><%= b.email %></td>
           <td><%= b.zipcode %></td>
-          <td><%= link_to "Edit", edit_user_path(b) %></td>
-          <td><%= link_to "Details", user_path(b) %></td>
-          <td><%= link_to "Delete", delete_user_path(b), :method => :delete %></td>
+          <td><%= link_to "Profile", user_path(b) %></td>
+          
 
         </tr>
         <% end %>
         
       </tbody>
     </table>
+
+    <ul class="pagination">
+      <li class="disabled"><a href="#">&laquo;</a></li>
+      <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+    </ul>
+
   </div>
   <div class="col-md-1"></div>
 </div>

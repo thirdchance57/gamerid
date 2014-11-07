@@ -3,7 +3,7 @@
 <head>
   <title>Gamerid</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => false %>
   
   <%= csrf_meta_tags %>
   <!-- adds jquery for twitter bootstrap -->
@@ -11,7 +11,9 @@
    <!-- for glyphicon -->
   <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
 </head>
-<body>
+
+<body ng-app="gameridApp">
+
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header navbar-brand" >

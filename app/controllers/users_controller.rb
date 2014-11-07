@@ -36,7 +36,7 @@ class UsersController < ApplicationController
 	def update
       @user = User.find(params[:id])
       if @user.update_attributes(params.require(:user).permit(:first_name, :last_name, :email, :zipcode, :password, :password_confirmation))
-          redirect_to gamertags_path
+          redirect_to edit_user_path(@user), alert: 'Profile Updated'
       else
         redirect_to edit_user_path(@user), notice: 'Invalid,  Check form and try again'
       end
