@@ -1,8 +1,14 @@
 <div class="row">
   <div class="col-md-1"></div>
   <div class="col-md-10">
-    <h1>Gamer Tags List</h1>
-    <%= link_to "Add Gamer Tag", gamertags_new_path %>
+    <h1>Gamer Tags List --- 
+      <small>
+        <% if  current_user != nil %>
+          <%= link_to " Add Gamer Tag", gamertags_new_path %>
+        <% end %>
+      </small>
+    </h1>
+    
 
     <table class="table">
       <th><%= link_to "Show All", gamertags_path(gamertagfilter:"showall") %></th>
@@ -39,9 +45,7 @@
               <% if u.id == b.user_id %>
                 <td><%= link_to u.first_name, user_path(u)%></td>
               <% end%>
-
             <% end%>
-            <td><%= link_to "Edit", edit_gamertag_path(b) %></td>
           </tr>
         <% end %>
         

@@ -8,19 +8,21 @@
       <% @user.photos.each do |p| %>
         <%= image_tag p.image.url(:small) %><br>
       <% end %>
-
-      <%= link_to "upload profile photo", new_photos_path%>
        
       <p> <br> 
         email address: <%= @user.email %> <br>
         Name: <%= @user.first_name %> <%= @user.last_name %> <br>
         Zipcode: <%= @user.zipcode %> <br>
         </p>
-      <% if current_user.id == @user.id %>
-        <%= link_to "Edit", edit_user_path(@user) %>
-        <%= link_to "Delete", delete_user_path(@user), :method => :delete %>
+
+      <% if current_user == nil %>
+        <% elsif current_user.id == @user.id %>
+          <%= link_to "Edit", edit_user_path(@user) %>
+          <%= link_to "Delete", delete_user_path(@user), :method => :delete %>
       <% end %><br>
-      <%= link_to "Back", users_path %> <br>
+
+      <%= link_to "Users", users_path %> <br>
+      <%= link_to "Gamertags", gamertags_path %> <br>
     </div>
     <div class="form-group col-md-3"></div>
   </div>
