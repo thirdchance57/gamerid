@@ -26,6 +26,12 @@ class PhotosController < ApplicationController
     
   end
 
+  def destroy
+    @photo = Photo.find(params[:id])
+    @photo.destroy
+    redirect_to users_path
+  end
+
   def photo_params
     params.require(:photo).permit(:image)
   end

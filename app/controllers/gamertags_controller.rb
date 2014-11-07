@@ -26,7 +26,7 @@ class GamertagsController < ApplicationController
     else
 		  @gamertags = Gamertag.all
     end
-    @user = User.where(:id => :user_id)
+    @users = User.all
 	end
 
 	def show

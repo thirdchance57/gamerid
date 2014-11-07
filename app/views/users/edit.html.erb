@@ -5,7 +5,7 @@
     <div class="form-group col-md-4">
       <h1> Profile, <%= @user.first_name %> <%= @user.last_name %></h1>
 
-      <%= @user.photos.each do |p| %>
+      <% @user.photos.each do |p| %>
         <%= image_tag p.image.url(:small) %><br>
       <% end %>
 
@@ -16,7 +16,6 @@
         Name: <%= @user.first_name %> <%= @user.last_name %> <br>
         Zipcode: <%= @user.zipcode %> <br>
         </p>
-      <%= link_to "Edit User", edit_user_path %> <br>
       <%= link_to "Back", users_path %> <br>
       <%= link_to "Delete", delete_user_path(@user), :method => :delete %>
     </div>
@@ -61,12 +60,6 @@
 		<div class="form-group col-md-2"></div>
 	</div>
 </div>
-
-    
-
-<h1>User Info</h1><br>
-  Email: <%= @user.email %><br>
-  Name: <%= @user.first_name %> <%= @user.last_name %><br>
   
 
 

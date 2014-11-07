@@ -41,7 +41,7 @@
 
       <div class="navbar-text navbar-right">
         <% if current_user %>
-          Welcome <%= link_to current_user.email, users_path %>
+          Welcome <%= link_to current_user.email, user_path(current_user) %>
           <%= link_to "Logout", sessions_path, method: :delete, :class => "btn btn-primary btn-xs"  %>
           <!-- buttons always do POST, Links always do Get by default  -->
         <% else %>
