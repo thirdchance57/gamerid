@@ -1,14 +1,29 @@
 <div class="row">
   <div class="col-md-1"></div>
   <div class="col-md-10">
-    <h1>Gamer Tags List --- 
-      <small>
-        <% if  current_user != nil %>
-          <%= link_to " Add Gamer Tag", gamertags_new_path %>
-        <% end %>
-      </small>
-    </h1>
     
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-5">
+        <h1>Gamer Tags List<br>
+          <small>
+            <% if  current_user != nil %>
+              <%= link_to " Add Gamer Tag", gamertags_new_path %>
+            <% end %>
+          </small>
+        </h1>
+      </div>
+      <div class="col-md-4">
+        <form  method="post" action="gamertags/filter" class="" role="search">
+          <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
+          <div class="form-group">
+            <input type="text" action='filter' name="gamertag" class="form-control" placeholder="Search Gamertags">
+          
+          <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+      </div>
+      <div class="col-md-2"></div>
+    </div>
 
     <table class="table">
       <th><%= link_to "Show All", gamertags_path(gamertagfilter:"showall") %></th>

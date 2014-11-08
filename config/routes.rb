@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   resource :sessions, only: [:create, :new, :destroy]
   resource :photos
+
+  post 'gamertags/filter', to: 'gamertags#filter'
   
   # resources :users
   # users

@@ -11,8 +11,13 @@
         Server: <%= @gamertag.server %> <br>
         Games n Details: <%= @gamertag.game %> <br>
       </p>
-      <%= link_to "Edit gamertag", edit_gamertag_path %> <br>
-      <%= link_to "Back", gamertags_path %> <br>
+      <% if current_user == nil %>
+        <% elsif current_user.id == @gamertag.user_id %>
+          <%= link_to "Edit gamertag", edit_gamertag_path %>
+      <% end %>
+
+      <br>
+      <%= link_to "Back", :back %> <br>
 
     </div>
     <div class="form-group col-md-4"></div>

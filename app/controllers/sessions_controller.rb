@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
       # Store as a cookie in the users' browser the ID of them,
       # indicating that they are logged in
       session[:user_id] = u.id.to_s
-      redirect_to gamertags_path
+      redirect_to user_path(current_user)
     else
       # Go back to the login page
       redirect_to new_sessions_path, notice: 'Invalid, Check form and try again'

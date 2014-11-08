@@ -9,6 +9,18 @@ class GamertagsController < ApplicationController
 
 
 	def index
+
+     #  start of possible search method
+    if params[:gamertag]
+      @gamertag = Gamertag.where(:'gamertag' => params[:gamertag]) 
+
+      @back = 1
+    else
+      @gamertag =  Gamertag.all
+      @back = nil
+    end
+
+    # start of platform filter
     my_gamertag_filter = params[:gamertagfilter]
     case my_gamertag_filter
     when "showall"
@@ -26,6 +38,7 @@ class GamertagsController < ApplicationController
     else
 		  @gamertags = Gamertag.all
     end
+
     @users = User.all
 	end
 
@@ -68,6 +81,10 @@ class GamertagsController < ApplicationController
     @gamertag.destroy
     redirect_to gamertags_path
   end
+
+def filter 
+  redirect_to gamertags_path(:gamertag => params[:gamertag])
+end
 
 # admin destroy tool
     # def destroy
