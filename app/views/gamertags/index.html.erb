@@ -1,77 +1,83 @@
-<div class="row">
-  <div class="col-md-1"></div>
-  <div class="col-md-10">
-    
-    <div class="row">
-      <div class="col-md-1"></div>
-      <div class="col-md-5">
-        <h1>Gamer Tags List<br>
-          <small>
-            <% if  current_user != nil %>
-              <%= link_to " Add Gamer Tag", gamertags_new_path %>
-            <% end %>
-          </small>
-        </h1>
-      </div>
-      <div class="col-md-4">
-        <form  method="post" action="gamertags/filter" class="" role="search">
-          <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
-          <div class="form-group">
-            <input type="text" action='filter' name="gamertag" class="form-control" placeholder="Search Gamertags">
-          
-          <button type="submit" class="btn btn-default">Submit</button>
-        </form>
-      </div>
-      <div class="col-md-2"></div>
+<div class="container-fluid"> 
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-5">
+      <h1>Gamer Tags List<br>
+        <small>
+          <% if  current_user != nil %>
+            <%= link_to " Add Gamer Tag", gamertags_new_path %>
+          <% end %>
+        </small>
+      </h1>
     </div>
 
-    <table class="table">
-      <th><%= link_to "Show All", gamertags_path(gamertagfilter:"showall") %></th>
-      <th><%= link_to "Xbox",  gamertags_path(gamertagfilter:"Xbox") %></th>
-      <th><%= link_to "Playstation", gamertags_path(gamertagfilter:"Playstation") %></th>
-      <th><%= link_to "Steam / PC",  gamertags_path(gamertagfilter:"Steam / PC") %></th>
-      <th><%= link_to "IOS Game Center", gamertags_path(gamertagfilter:"IOS Game Center") %></th>
-      <th><%= link_to "Android Play Games", gamertags_path(gamertagfilter:"Android Play Games") %></th>
-    </table>
-
-    <table class="table table-striped">
-      <caption>Gamer Tag Database</caption>
-      <thead>
-        <tr>
-          
-          <th>Gamer Tag</th>
-          <th>Platform</th>
-          <th>Server</th>
-          <th>Game</th>
-          <th>User Profile</th>
-
-        </tr>
-      </thead>
-      <tbody>
-      	<% @gamertags.each do |b| %>
-
-          <tr>
-            
-            <td><%= link_to b.name, gamertag_path(b) %></td>
-            <td><%= b.platform %></td>
-            <td><%= b.server %></td>
-            <td><%= b.game %></td>
-            <% @users.each do |u|%>
-              <% if u.id == b.user_id %>
-                <td><%= link_to u.first_name, user_path(u)%></td>
-              <% end%>
-            <% end%>
-          </tr>
-        <% end %>
+    <div class="col-md-4">
+      <form  method="post" action="gamertags/filter" class="" role="search">
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
+        <div class="form-group">
+          <input type="text" action='filter' name="gamertag" class="form-control" placeholder="Search Gamertags">
         
-      </tbody>
-    </table>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+    </div>
 
-    <ul class="pagination">
-      <li class="disabled"><a href="#">&laquo;</a></li>
-      <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
-    </ul>
-    
+    <div class="col-md-2"></div>
   </div>
-  <div class="col-md-1"></div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">Developers</h3>
+          <div class="pull-right">
+            <span class="clickable filter" data-toggle="tooltip" title="" data-container="body" data-original-title="Toggle table filter">
+              <i class="glyphicon glyphicon-filter"></i>
+            </span>
+          </div>
+        </div>
+
+        <div class="panel-body" style="display: none;">
+          <input type="text" class="form-control" id="dev-table-filter" data-action="filter" data-filters="#dev-table" placeholder="Filter Developers">
+          <script>$(input-element).filterTable()</script>
+        </div>
+
+        <!-- start of table -->
+        <table class="table table-hover" id="dev-table">
+          <thead>
+            <tr>
+              <th>Gamer Tag</th>
+              <th>Platform</th>
+              <th>Server</th>
+              <th>Game</th>
+              <th>User Profile</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @gamertags.each do |b| %>
+              <tr>
+                <td><%= link_to b.name, gamertag_path(b) %></td>
+                <td><%= b.platform %></td>
+                <td><%= b.server %></td>
+                <td><%= b.game %></td>
+                <% @users.each do |u|%>
+                  <% if u.id == b.user_id %>
+                    <td><%= link_to u.first_name, user_path(u)%></td>
+                  <% end%>
+                <% end%>
+              </tr>
+            <% end %>              
+          </tbody>
+        </table>
+        <!-- end of new table -->
+
+      <ul class="pagination">
+        <li class="disabled"><a href="#">&laquo;</a></li>
+        <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+      </ul>
+      <div class="col-md-1"></div>
+    </div>
+  </div>
 </div>

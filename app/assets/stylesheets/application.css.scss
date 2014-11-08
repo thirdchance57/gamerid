@@ -21,6 +21,28 @@
 //   min-height: 100%; 
 // }
 // body {
-//   background: linear-gradient(#ededed, white);
+//   background: linear-gradient(#ededed, black);
 // box-shadow: inset 0 0 100px hsla(0,0%,0%,.3);
 // }
+
+.marginRight {
+  margin-right: 10px;
+}
+.row{
+    margin-top:40px;
+    padding: 0 10px;
+}
+.clickable{
+    cursor: pointer;   
+}
+
+.panel-heading div {
+  margin-top: -18px;
+  font-size: 15px;
+}
+.panel-heading div span{
+  margin-left:5px;
+}
+.panel-body{
+  display: none;
+}
