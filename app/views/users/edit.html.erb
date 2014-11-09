@@ -7,7 +7,7 @@
             <h2><%= link_to " Add Gamer Tag", gamertags_new_path %></h2>
 
       <% @user.photos.each do |p| %>
-        <%= image_tag p.image.url(:small) %><br>
+        <%= image_tag p.image.url(:medium) %><br>
       <% end %>
 
       <%= link_to "upload profile photo", new_photos_path%>
@@ -54,7 +54,7 @@
 	    <br>
     	<%= link_to "Upload Photo", new_photos_path%>	<br>
 	    <%= link_to "Delete", delete_user_path(@user), :method => :delete %> <br>
-	    <%= link_to "Back", users_path %> <br>
+	    <%= link_to "Back", :back %> <br>
 	
 		</div>
 

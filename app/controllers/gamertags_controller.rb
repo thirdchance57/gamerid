@@ -40,6 +40,7 @@ class GamertagsController < ApplicationController
     end
 
     @users = User.all
+    @photos = Photo.all
 	end
 
 	def show
@@ -57,7 +58,7 @@ class GamertagsController < ApplicationController
     @current_user.gamertags << Gamertag.new(params.require(:gamertag).permit(:platform, :server, :game, :name, :username))
 #gamertags = Gamertag.new(params.require(:gamertag).permit(:platform, :server, :game, :name, :username, :user_id))
     if current_user.save
-        redirect_to gamertags_path
+        redirect_to user_path(current_user)
     else
        render 'new'
     end
@@ -83,7 +84,8 @@ class GamertagsController < ApplicationController
   end
 
 def filter 
-  redirect_to gamertags_path(:gamertag => params[:gamertag])
+  redirect_to gamertags_path([:gamertag] => params[:gamertag])
+  # redirect_to gamertags_path(:gamertag => params[:gamertag])
 end
 
 # admin destroy tool

@@ -7,8 +7,6 @@
   <%= javascript_include_tag "application", "data-turbolinks-track" => false %>
   <%= csrf_meta_tags %>
 
-  
-
   <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
   <!-- adds jquery for twitter bootstrap -->
@@ -42,9 +40,6 @@
                 <li><%= link_to "Android Play Games", gamertags_path(gamertagfilter:"Android Play Games") %></li>
               </ul>
 
-
-
-
             </li>
           </ul>
         </div>
@@ -66,9 +61,7 @@
     </div>
   </nav>
 
-
 <%= yield %>
-
 
 </body>
 </html>

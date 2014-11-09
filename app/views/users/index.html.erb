@@ -18,16 +18,20 @@
         </tr>
       </thead>
       <tbody>
-      	<% @users.each do |b| %>
+      	<% @users.each do |u| %>
         <tr>
           
-          <td><%= link_to b.first_name, user_path(b) %></td>
-          <td><%= b.last_name %></td>
-          <td><%= b.email %></td>
-          <td><%= b.zipcode %></td>
-          <td><%= link_to "Profile", user_path(b) %></td>
-          
+          <td><%= link_to u.first_name, user_path(u) %></td>
+          <td><%= u.last_name %></td>
+          <td><%= u.email %></td>
+          <td><%= u.zipcode %></td>
 
+            <% @photos.each do |p| %>
+                <% if p.user_id == u.id %>
+                  <td><%= image_tag p.image.url(:thumbnail) %></td>
+                <% end%>
+            <% end%>
+          
         </tr>
         <% end %>
         

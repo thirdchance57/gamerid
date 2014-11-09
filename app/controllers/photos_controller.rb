@@ -4,6 +4,8 @@ class PhotosController < ApplicationController
 
   def index
     @photos = Photo.all
+    @users = User.all
+
   end
   def new
     @photo =Photo.new
@@ -16,7 +18,7 @@ class PhotosController < ApplicationController
     #@photo.tags = tagger(@photo.tags)
     # Attach this criterion to a decision
     if @photo.save
-      redirect_to users_path
+      redirect_to user_path(current_user)
     else
       render 'new'
     end
