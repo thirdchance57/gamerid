@@ -58,7 +58,7 @@ class GamertagsController < ApplicationController
     @current_user.gamertags << Gamertag.new(params.require(:gamertag).permit(:platform, :server, :game, :name, :username))
 #gamertags = Gamertag.new(params.require(:gamertag).permit(:platform, :server, :game, :name, :username, :user_id))
     if current_user.save
-        redirect_to user_path(current_user)
+        redirect_to user_path(current_user), alert: 'Gamertag Created'
     else
        render 'new'
     end
@@ -71,7 +71,7 @@ class GamertagsController < ApplicationController
 	def update
     @gamertag = Gamertag.find(params[:id])
     if @gamertag.update_attributes(params.require(:gamertag).permit(:platform, :server, :game, :name, :username))
-        redirect_to gamertags_path
+        redirect_to gamertags_path, alert: 'Gamertag Updated'
     else
         render 'edit'
     end
@@ -84,7 +84,7 @@ class GamertagsController < ApplicationController
   end
 
 def filter 
-  redirect_to gamertags_path([:gamertag] => params[:gamertag])
+  redirect_to gamertags_path([:gamertag] => params[:gamertag_id])
   # redirect_to gamertags_path(:gamertag => params[:gamertag])
 end
 

@@ -18,7 +18,7 @@ class PhotosController < ApplicationController
     #@photo.tags = tagger(@photo.tags)
     # Attach this criterion to a decision
     if @photo.save
-      redirect_to user_path(current_user)
+      redirect_to user_path(current_user), alert: 'Photo Uploaded '
     else
       render 'new'
     end

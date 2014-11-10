@@ -17,8 +17,8 @@
 
       <% if current_user == nil %>
         <% elsif current_user.id == @user.id %>
-          <h2><%= link_to " Add Gamer Tag", gamertags_new_path %></h2>
-          <%= link_to "Upload Photo", new_photos_path%> <br>
+          <h4><%= link_to " Add Gamer Tag", gamertags_new_path %></h4>
+          <h4><%= link_to "Upload Photo", new_photos_path%></h4> <br>
           <%= link_to "Edit", edit_user_path(@user) %> <br>
           <%= link_to "Delete", delete_user_path(@user), :method => :delete %>
       <% end %><br>

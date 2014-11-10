@@ -26,7 +26,7 @@ class UsersController < ApplicationController
 	    @user = User.new(params.require(:user).permit(:first_name, :last_name, :email, :zipcode, :password, :password_confirmation))
 	    if @user.save
 	    	session[:user_id] = @user.id.to_s
-	        redirect_to user_path(current_user)
+	        redirect_to user_path(current_user), alert: 'Profile Created'
 	    else
 	        redirect_to new_user_path, notice: 'Invalid,  Check form and try again'
 	    end
