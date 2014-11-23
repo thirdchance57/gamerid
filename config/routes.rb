@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'gamertags#index'
+  root 'welcome#index'
 
   resource :sessions, only: [:create, :new, :destroy]
   resource :photos
