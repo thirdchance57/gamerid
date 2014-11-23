@@ -1,58 +1,150 @@
 <div class="container">
   <div class="row">
-    <div class="form-group col-md-3"></div>
-
-    <div class="form-group col-md-5">
-      <h1> Profile, <%= @user.first_name %> <%= @user.last_name %></h1>
-
-      <% @user.photos.each do |p| %>
-        <%= image_tag p.image.url(:medium) %><br>
+    <div class="col-md-3">
+      
+     <% @user.photos.each do |p| %>
+        <%= image_tag p.image.url(:large) %><br>
       <% end %>
-       
-      <p> <br> 
-        email address: <%= @user.email %> <br>
-        Name: <%= @user.first_name %> <%= @user.last_name %> <br>
-        Zipcode: <%= @user.zipcode %> <br>
-        </p>
 
       <% if current_user == nil %>
+            <% elsif current_user.id == @user.id %>
+              <h4><%= link_to "Edit Photo", new_photos_path %></h4>
+            <% end %>
+             <% if current_user == nil %>
         <% elsif current_user.id == @user.id %>
           <h4><%= link_to " Add Gamer Tag", gamertags_new_path %></h4>
-          <h4><%= link_to "Upload Photo", new_photos_path%></h4> <br>
-          <%= link_to "Edit", edit_user_path(@user) %> <br>
+          
+          <%= link_to "Edit", edit_user_path(@user) %> |
           <%= link_to "Delete", delete_user_path(@user), :method => :delete %>
-      <% end %><br>
+      <% end %> |
 
       <%= link_to "Back", :back %> <br>
-    </div>
-    <div class="form-group col-md-3">
-      <table class="table table-striped">
-        <caption>Gamer Tag Database</caption>
-        <thead>
-          <tr>
-
-            <th> Gamer Tags</th>
-          </tr>
-        </thead>
-        <tbody>
-
-            <tr>
-              <% @user.gamertags.each do |u|%>
-                
-                  <td><%= link_to u.name, gamertag_path(u)%></td>
-
-            </tr>
-              <% end%>
-          
-        </tbody>
-      </table>
+       
+       
     </div>
 
-    <div class="form-group col-md-1"></div>
+    <div class="col-md-5">
+      <div class="tabbable">
+  <ul class="nav nav-tabs">
+    <li class="active"><a href="#pane1" data-toggle="tab">Profile</a></li>
+    <li><a href="#pane2" data-toggle="tab">Xbox</a></li>
+    <li><a href="#pane3" data-toggle="tab">Playstation</a></li>
+    <li><a href="#pane4" data-toggle="tab">PC</a></li>
+  </ul>
+  <div class="tab-content">
+    <div id="pane1" class="tab-pane active">
+    <h1>  <%= @user.first_name %> <%= @user.last_name %></h1>
+    <p>I'm a gamer in New York who loves to blow people up in Call of Duty!</p>
+    <p>Status: Playing Fifa</p>
+    <!-- <p>Last Logged In: </p> -->
+    <p>Games Played: 
+      <ul>
+        <li>Assasins Creed <i>On Playstation</i></li>
+        <li>Farcry4 <i>On Xbox</i></li>
+        <li>Titanfall <i>On Xbox</i></li>
+        <li>Fifa 2015 <i>On Playstation</i></li>
+      </ul>
+      </p>
+
+     
+       
+
+        <!-- Email address: <%= @user.email %> <br> -->
+      <!--   Name: <%= @user.first_name %> <%= @user.last_name %>  -->
+     <!--    Zipcode: <%= @user.zipcode %>  -->
+        
+
+
+    </div>
+    <div id="pane2" class="tab-pane">
+    <h4>X-Box Tags</h4>
+      <p><% @user.gamertags.each do |u|%>
+          <%= link_to u.name, gamertag_path(u)%></p>
+      <% end %>
+
+    </div>
+    <div id="pane3" class="tab-pane">
+      <h4>Playstation Tags</h4>
+       <p><% @user.gamertags.each do |u|%>
+          <%= link_to u.name, gamertag_path(u)%></p>
+      <% end %>
+    </div>
+    <div id="pane4" class="tab-pane">
+      <h4>PC Tags</h4>
+       <p><% @user.gamertags.each do |u|%>
+          <%= link_to u.name, gamertag_path(u)%></p>
+      <% end %>
+    </div>
+  </div><!-- /.tab-content -->
+</div><!-- /.tabbable -->
+      
+    </div>
+     <div class="col-md-1"></div>
+    <div class="col-md-3">
+     <h3>Following</h3>
+     <ul>
+      <li><a href="#">bloodey axe</a></li>
+      <li><a href="#">l ArTICuno ll</a></li>
+      <li><a href="#">THE GAME HHH610</a></li>
+      <li><a href="#">SuburbanBoy TM</a></li>
+    </ul>
+
+    <h3>Friends</h3> <i>Online Now</i>
+    <ul>
+      <li><a href="#">darkstareddie1</a></li>
+      <li><a href="#">CorRupT ScOp3zZ</a></li>
+      <li><a href="#">HoldingSquash30</a></li>
+      <li><a href="#">a black grandpa</a></li> 
+    </ul>
+    </div>
+
+   
   </div>
 </div>
+<br />
+<div style="border-top: 1px solid black;"></div>
+<h4 align="center">Achievements Feed</h4>
+<div class="container">
+  <div class="row">
+<div style="height: 200px; overflow: auto;">
+<table cellspacing="0" cellpadding="0" id="achievements">
+            <tr class="tr1">
+        <td><span class="borderImg"><img width="64px" height="64px" src="http://www.xboxgamertag.com/resources/gamedata/63/1FC02AF5-1DE9-3792-8286-86683BCEACED.jpg" /></span></td>
+        <td>
+          <p class="achName">Carlson's Raiders</p>
+          <p>Complete 'Semper Fi' on any difficulty. (Solo only)</p>
+        </td>
+        <td class="achScore">10</td>
+      </tr>
+            <tr class="tr2">
+        <td><span class="borderImg"><img width="64px" height="64px" src="http://www.xboxgamertag.com/resources/gamedata/63/673F9AF0-B4EF-4395-D7D0-D7797AE45283.jpg" /></span></td>
+        <td>
+          <p class="achName">Stormed Peleliu</p>
+          <p>Establish a beachhead on the island of Peleliu on any difficulty. (Solo only)</p>
+        </td>
+        <td class="achScore">15</td>
+      </tr>
+            <tr class="tr1">
+        <td><span class="borderImg"><img width="64px" height="64px" src="http://www.xboxgamertag.com/resources/gamedata/63/F458E72F-3AC2-276A-B3F0-BCEAC2D4B569.jpg" /></span></td>
+        <td>
+          <p class="achName">The Last Stand</p>
+          <p>Survive the land and air conflict surrounding Okinawa on any difficulty. (Solo only)</p>
+        </td>
+        <td class="achScore">20</td>
+      </tr>
+    </table>
+  </div>
+     
 
+<div class="marquee">
+    <p>Jumping_Donkey is Playing World of Warcraft<i>PC</i></p>
+    <p>Unicorn2.0 just beat the Lackers in NBA 2k <i>PlayStation</i></p>
+    <p>Pram accomplished a new high record in Mario Kart <i>Nintendo</i></p>
+    <p>Explosive_Mascara just beat NinjaAssasin at Tetris <i>Nintendo</i></p>   
+  </div>
 
+</div>
+</div>
 
 
 
