@@ -1,8 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="form-group col-md-1"></div>
-
-    <div class="form-group col-md-3">
+    <div class="col-md-3">
       
      <% @user.photos.each do |p| %>
         <%= image_tag p.image.url(:large) %><br>
@@ -24,8 +22,32 @@
        
        
     </div>
+<<<<<<< HEAD
+    <div class="form-group col-md-3">
+      <table class="table table-striped">
+        <caption>Gamer Tag Database</caption>
+        <thead>
+          <tr>
 
-    <div class="col-md-4">
+            <th> Gamer Tags</th>
+          </tr>
+        </thead>
+        <tbody>
+
+            <tr>
+              <% @user.gamertags.each do |u|%>
+                
+                  <td><%= link_to u.name, gamertag_path(u)%></td>
+                  <td><%= link_to u.name, gamertag_path(u)%></td>
+
+            </tr>
+              <% end%>
+          
+        </tbody>
+      </table>
+=======
+
+    <div class="col-md-5">
       <div class="tabbable">
   <ul class="nav nav-tabs">
     <li class="active"><a href="#pane1" data-toggle="tab">Profile</a></li>
@@ -57,15 +79,20 @@
         
 
 
+>>>>>>> greg
     </div>
     <div id="pane2" class="tab-pane">
     <h4>X-Box Tags</h4>
-   <p>PeachPrincess</p>
+      <p><% @user.gamertags.each do |u|%>
+          <%= link_to u.name, gamertag_path(u)%></p>
+      <% end %>
 
     </div>
     <div id="pane3" class="tab-pane">
       <h4>Playstation Tags</h4>
-     <p>WarriorElf</p>
+       <p><% @user.gamertags.each do |u|%>
+          <%= link_to u.name, gamertag_path(u)%></p>
+      <% end %>
     </div>
     <div id="pane4" class="tab-pane">
       <h4>PC Tags</h4>
@@ -77,8 +104,15 @@
 </div><!-- /.tabbable -->
       
     </div>
-    
+     <div class="col-md-1"></div>
     <div class="col-md-3">
+     <h3>Following</h3>
+     <ul>
+      <li><a href="#">bloodey axe</a></li>
+      <li><a href="#">l ArTICuno ll</a></li>
+      <li><a href="#">THE GAME HHH610</a></li>
+      <li><a href="#">SuburbanBoy TM</a></li>
+    </ul>
 
     <h3>Friends</h3> <i>Online Now</i>
     <ul>
@@ -86,10 +120,6 @@
       <li><a href="#">CorRupT ScOp3zZ</a></li>
       <li><a href="#">HoldingSquash30</a></li>
       <li><a href="#">a black grandpa</a></li> 
-            <li><a href="#">bloodey axe</a></li>
-      <li><a href="#">l ArTICuno ll</a></li>
-      <li><a href="#">THE GAME HHH610</a></li>
-      <li><a href="#">SuburbanBoy TM</a></li>
     </ul>
     </div>
 
@@ -133,7 +163,7 @@
 
 <div class="marquee">
     <p>Jumping_Donkey is Playing World of Warcraft<i>PC</i></p>
-    <p>Unicorn2.0 just beat the Lakers in NBA 2k <i>PlayStation</i></p>
+    <p>Unicorn2.0 just beat the Lackers in NBA 2k <i>PlayStation</i></p>
     <p>Pram accomplished a new high record in Mario Kart <i>Nintendo</i></p>
     <p>Explosive_Mascara just beat NinjaAssasin at Tetris <i>Nintendo</i></p>   
   </div>

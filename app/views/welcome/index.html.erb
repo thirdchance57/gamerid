@@ -3,10 +3,10 @@
   <div class="col-md-6">
     <br>
     <br>  
-    <center><%= image_tag("GameTagLogo.png") %></center>
+    <center><%= image_tag("gametag.jpg", :width => 200) %></center>
     <br>
     <form role="form">
-      <input class="form-control" id="focusedInput" type="text" value="SEARCH GAMER TAG">
+      <input class="form-control" id="focusedInput" type="text" >
     </form>
     <br>
       </div>
@@ -22,13 +22,14 @@
     
   </div>
   <div class="col-md-1">
-    <%= link_to "Playstation", users_path, :class => "btn btn-primary btn-block"  %>
+        <button type="button" class="btn btn-primary btn-block"><a style="color:white;" href="http://localhost:3000/users/5472359f47726561e8000000">Playstation</a></button>
+  
   </div>
   <div class="col-md-1">
     <%= link_to "Xbox", users_path, :class => "btn btn-success btn-block"  %>
   </div>
   <div class="col-md-1">
-    <button type="button" class="btn btn-info btn-block">IOS</button>
+    <button type="button" class="btn btn-info btn-block"><a href="http://localhost:3000/users/5472359f47726561e8000000">IOS</a></button>
   </div>
   <div class="col-md-1">
     <button type="button" class="btn btn-warning btn-block">Nintendo</button>

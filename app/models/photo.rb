@@ -10,7 +10,8 @@ class Photo
     :styles => {
       :thumbnail => ['15x15#', :jpg],
       :small =>     ['20x20#', :jpg],
-      :medium    => ['100x100#', :jpg]
+      :medium    => ['100x100#', :jpg],
+      :large => ['200x200#', :jpg]
     }
 
   validates_attachment_content_type :image, content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"]
