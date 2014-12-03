@@ -7,7 +7,7 @@ deploy:
   provider: heroku
   api_key:
     secure: DwhidLT4cN2dMV61UvnHxiZuBL7Y07PBjgJ7+I0EG3PSYscnSWKvBCIS9BtyE7vKHakcxpkgyUkGgb13LhqMRkG7zWIzL1kBFrJ+eKl2hUTWK6SoMbC7+AbSjJqgnjBn4RuecIfXS1ijpGxJO6nJLZnnnpKQ/CV0kO4DlgLf0g0=
-  app: shrouded-reaches-6008
+  # app: shrouded-reaches-6008
   run:
   #remember that migrations you run locally must run in the release environment
   - restart
