@@ -10,5 +10,4 @@ deploy:
   app: shrouded-reaches-6008
   run:
   #remember that migrations you run locally must run in the release environment
-  - "rake db:migrate"
   - restart
